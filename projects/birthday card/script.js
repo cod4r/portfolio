@@ -12,12 +12,16 @@ function toggleCard(card) {
     }
 
     // Butterflies fly out
+    const rect = card.getBoundingClientRect();
+    const startX = rect.left + rect.width / 2;
+    const startY = rect.top + rect.height / 2;
+
     for (let i = 0; i < 8; i++) {
       const butterfly = document.createElement('div');
       butterfly.className = 'butterfly';
       butterfly.style.setProperty('--randX', Math.random());
-      butterfly.style.left = '200px';
-      butterfly.style.top = '150px';
+      butterfly.style.left = `${startX}px`;
+      butterfly.style.top = `${startY}px`;
       document.body.appendChild(butterfly);
       setTimeout(() => butterfly.remove(), 4000);
     }
