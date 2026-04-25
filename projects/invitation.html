@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Event Invitation</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+    min-height: 100vh;
+    color: #fff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeIn 1s ease-in;
+}
+
+.title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: gold; /* Fix color value */
+}
+
+.date {
+    font-size: 1.5rem;
+    color: #ddd;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+    animation: slideUp 1s ease-out;
+}
+
+.card h2 {
+    color: gold; /* Fix color value */
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.details p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.details i {
+    margin-right: 10px;
+    color: gold; /* Fix color value */
+}
+
+.images {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.image-gallery img {
+    width: calc(25% - 1rem);
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.rsvp {
+    text-align: center;
+}
+
+.rsvp-btn {
+    background: gold; /* Fix color value */
+    color: #1a1a1a;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.rsvp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .date {
+        font-size: 1.2rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .image-gallery img {
+        width: calc(50% - 1rem);
+    }
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">MANAV RACHNA UNIVERSITY</h1>
+            <p class="date">14th March, 2025</p>
+        </header>
+
+        <section class="event-details">
+            <div class="card">
+                <h2>You're Invited</h2>
+                <p class="description">Join us for an unforgettable evening of elegance and celebration</p>
+                <div class="details">
+                    <p><i class="fas fa-clock"></i> 7:00 PM - 11:00 PM</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Crown Plaza Hotel</p>
+                    <p><i class="fas fa-location-dot"></i> Okhla Phase 1, New Delhi</p>
+                </div>
+            </div>
+        </section>
+        <section class="rsvp">
+            <button class="rsvp-btn">RSVP Now</button>
+        </section>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const rsvpButton = document.querySelector('.rsvp-btn');
+    
+    rsvpButton.addEventListener('click', function() {
+        alert('Thank you for your interest! RSVP functionality will be available soon.');
+    });
+
+    // Add smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Add parallax effect on scroll
+    window.addEventListener('scroll', function() {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            const position = card.getBoundingClientRect();
+            if(position.top < window.innerHeight && position.bottom >= 0) {
+                card.style.transform = `translateY(${window.scrollY * 0.1}px)`;
+            }
+        });
+    });
+
+    // Add scroll animation for images
+    const images = document.querySelectorAll('.image-gallery img');
+    window.addEventListener('scroll', function() {
+        images.forEach(img => {
+            const position = img.getBoundingClientRect();
+            if (position.top < window.innerHeight && position.bottom >= 0) {
+                img.style.transform = `translateY(${window.scrollY * 0.1}px)`;
+            }
+        });
+    });
+});
+
+</script>
+</body>
+</html>
