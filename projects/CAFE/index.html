@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chai Garam — Pocket Café</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav id="nav">
+    <a class="nav-logo" href="#"><span class="nav-logo-dot"></span>Chai Garam</a>
+    <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#order">Order</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#order" class="nav-cta">Order Now</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-line"></span><span class="hero-eyebrow-text">Pocket Café · Your College Hangout</span></div>
+      <h1 class="hero-h1">Brewed<br>with <em>craft,</em><br>served fast.</h1>
+      <p class="hero-sub">Hot chai, cold shakes, quick bites and comfort food — made fresh, priced fair, made for you.</p>
+      <div class="hero-btns">
+        <a href="#menu" class="btn-gold">Explore Menu</a>
+        <a href="#order" class="btn-ghost">Place Order</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hstat-num">50+</div><div class="hstat-label">Items</div></div>
+        <div><div class="hstat-num">₹20</div><div class="hstat-label">Starts at</div></div>
+        <div><div class="hstat-num">100%</div><div class="hstat-label">Fresh daily</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card-float">
+        <div class="hcard"><div class="hcard-icon">☕</div><div><div class="hcard-title">Hot Beverages</div><div class="hcard-sub">Chai · Coffee · Mocha · Chocolate</div></div></div>
+        <div class="hcard"><div class="hcard-icon">🥤</div><div><div class="hcard-title">Cold Shakes & Coolers</div><div class="hcard-sub">12+ flavours · S / L / XL</div></div></div>
+        <div class="hcard"><div class="hcard-icon">🥟</div><div><div class="hcard-title">Momos & Snacks</div><div class="hcard-sub">Steam · Fried · Sauced</div></div></div>
+        <div class="hcard"><div class="hcard-icon">🍕</div><div><div class="hcard-title">Pizza, Pasta & Mains</div><div class="hcard-sub">Maggi · Sandwiches · Burgers</div></div></div>
+        <div class="hcard"><div class="hcard-icon">🍽️</div><div><div class="hcard-title">Combo Deals</div><div class="hcard-sub">Burger + Fries + Coke from ₹130</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip"><div class="strip-inner" id="stripInner"></div></div>
+
+  <div class="cat-nav">
+    <div class="cat-nav-inner">
+      <button class="cat-btn active" data-tab="momos">🥟 Momos</button>
+      <button class="cat-btn" data-tab="fries">🍟 Fries</button>
+      <button class="cat-btn" data-tab="shakes">🥤 Shakes</button>
+      <button class="cat-btn" data-tab="hot">☕ Hot Drinks</button>
+      <button class="cat-btn" data-tab="coolers">🧊 Coolers</button>
+      <button class="cat-btn" data-tab="maggi">🍜 Maggi</button>
+      <button class="cat-btn" data-tab="pizza">🍕 Pizza</button>
+      <button class="cat-btn" data-tab="omelette">🍳 Omelette</button>
+      <button class="cat-btn" data-tab="sandwiches">🥪 Sandwiches</button>
+      <button class="cat-btn" data-tab="pasta">🍝 Pasta</button>
+      <button class="cat-btn" data-tab="burgers">🍔 Burgers</button>
+      <button class="cat-btn" data-tab="combos">🍽️ Combos</button>
+      <button class="cat-btn" data-tab="subway">🥖 Subway</button>
+      <button class="cat-btn" data-tab="rolls">🌯 Rolls</button>
+    </div>
+  </div>
+
+  <section id="menu">
+    <div class="menu-content">
+
+      <div class="menu-panel active" id="tab-momos">
+        <div class="panel-heading"><h2>Momos</h2><span class="panel-count">12 items</span></div>
+        <div class="food-grid">
+          <div class="food-item"><div><div class="fi-name">Veg Steam Momo</div><div class="fi-desc">8 pcs · steamed</div></div><div class="fi-right"><div class="fi-price">₹100</div><button class="add-btn" onclick="qa('Veg Steam Momo',100)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Veg Fried Momo</div><div class="fi-desc">8 pcs · crispy</div></div><div class="fi-right"><div class="fi-price">₹100</div><button class="add-btn" onclick="qa('Veg Fried Momo',100)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chicken Steam Momo</div><div class="fi-desc">8 pcs · steamed</div></div><div class="fi-right"><div class="fi-price">₹130</div><button class="add-btn" onclick="qa('Chicken Steam Momo',130)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chicken Fried Momo</div><div class="fi-desc">8 pcs · crispy</div></div><div class="fi-right"><div class="fi-price">₹130</div><button class="add-btn" onclick="qa('Chicken Fried Momo',130)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Veg Chilly Garlic</div></div><div class="fi-right"><div class="fi-price">₹130</div><button class="add-btn" onclick="qa('Veg Chilly Garlic',130)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chicken Chilly Garlic</div></div><div class="fi-right"><div class="fi-price">₹150</div><button class="add-btn" onclick="qa('Chicken Chilly Garlic',150)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Veg Creamy Alfredo</div><div class="fi-desc">white sauce</div></div><div class="fi-right"><div class="fi-price">₹130</div><button class="add-btn" onclick="qa('Veg Creamy Alfredo',130)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chicken Creamy Alfredo</div><div class="fi-desc">white sauce</div></div><div class="fi-right"><div class="fi-price">₹150</div><button class="add-btn" onclick="qa('Chicken Creamy Alfredo',150)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Veg Mix Sauce</div></div><div class="fi-right"><div class="fi-price">₹130</div><button class="add-btn" onclick="qa('Veg Mix Sauce',130)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chicken Mix Sauce</div></div><div class="fi-right"><div class="fi-price">₹150</div><button class="add-btn" onclick="qa('Chicken Mix Sauce',150)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Veg Tandoori Sauce</div></div><div class="fi-right"><div class="fi-price">₹130</div><button class="add-btn" onclick="qa('Veg Tandoori Sauce',130)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chicken Tandoori Sauce</div></div><div class="fi-right"><div class="fi-price">₹150</div><button class="add-btn" onclick="qa('Chicken Tandoori Sauce',150)">+</button></div></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-fries">
+        <div class="panel-heading"><h2>Fries</h2><span class="panel-count">4 items</span></div>
+        <div class="food-grid">
+          <div class="food-item"><div><div class="fi-name">Salted Fries</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('Salted Fries',80)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Peri Peri Fries</div><div class="fi-desc">spicy & tangy</div></div><div class="fi-right"><div class="fi-price">₹100</div><button class="add-btn" onclick="qa('Peri Peri Fries',100)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Baked Cheese Fries</div><div class="fi-desc">melted cheese topping</div></div><div class="fi-right"><div class="fi-price">₹120</div><button class="add-btn" onclick="qa('Baked Cheese Fries',120)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Dip</div><div class="fi-desc">add-on sauce</div></div><div class="fi-right"><div class="fi-price">₹20</div><button class="add-btn" onclick="qa('Dip',20)">+</button></div></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-shakes">
+        <div class="panel-heading"><h2>Cold Shakes</h2><span class="panel-count">12 flavours — tap a size to add</span></div>
+        <div class="drink-grid" id="shakes-grid"></div>
+      </div>
+
+      <div class="menu-panel" id="tab-hot">
+        <div class="panel-heading"><h2>Hot Beverages</h2><span class="panel-count">8 items</span></div>
+        <div class="food-grid">
+          <div class="food-item"><div><div class="fi-name">Chai</div><div class="fi-desc">classic cutting chai</div></div><div class="fi-right"><div class="fi-price">₹20</div><button class="add-btn" onclick="qa('Chai',20)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Adrak Chai</div><div class="fi-desc">ginger infused</div></div><div class="fi-right"><div class="fi-price">₹25</div><button class="add-btn" onclick="qa('Adrak Chai',25)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Masala Chai</div><div class="fi-desc">spiced blend</div></div><div class="fi-right"><div class="fi-price">₹20</div><button class="add-btn" onclick="qa('Masala Chai',20)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Kulhad Chai</div><div class="fi-desc">clay cup special</div></div><div class="fi-right"><div class="fi-price">₹30</div><button class="add-btn" onclick="qa('Kulhad Chai',30)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Hot Coffee</div><div class="fi-desc">small</div></div><div class="fi-right"><div class="fi-price">₹30</div><button class="add-btn" onclick="qa('Hot Coffee (S)',30)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Hot Coffee</div><div class="fi-desc">large</div></div><div class="fi-right"><div class="fi-price">₹50</div><button class="add-btn" onclick="qa('Hot Coffee (L)',50)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Hot Mocha</div></div><div class="fi-right"><div class="fi-price">₹50</div><button class="add-btn" onclick="qa('Hot Mocha',50)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Hot Chocolate</div></div><div class="fi-right"><div class="fi-price">₹70</div><button class="add-btn" onclick="qa('Hot Chocolate',70)">+</button></div></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-coolers">
+        <div class="panel-heading"><h2>Coolers</h2><span class="panel-count">10 flavours — tap a size to add</span></div>
+        <div class="drink-grid" id="coolers-grid"></div>
+      </div>
+
+      <div class="menu-panel" id="tab-maggi">
+        <div class="panel-heading"><h2>Maggi Noodles</h2><span class="panel-count">8 items</span></div>
+        <div class="food-grid">
+          <div class="food-item"><div><div class="fi-name">Masala Maggi</div></div><div class="fi-right"><div class="fi-price">₹50</div><button class="add-btn" onclick="qa('Masala Maggi',50)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Double Masala Maggi</div></div><div class="fi-right"><div class="fi-price">₹60</div><button class="add-btn" onclick="qa('Double Masala Maggi',60)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Veg Maggi</div></div><div class="fi-right"><div class="fi-price">₹60</div><button class="add-btn" onclick="qa('Veg Maggi',60)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Cheese Maggi</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('Cheese Maggi',80)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Schezwan Maggi</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('Schezwan Maggi',80)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Schezwan Cheese Maggi</div></div><div class="fi-right"><div class="fi-price">₹90</div><button class="add-btn" onclick="qa('Schezwan Cheese Maggi',90)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Egg Maggi</div></div><div class="fi-right"><div class="fi-price">₹70</div><button class="add-btn" onclick="qa('Egg Maggi',70)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chilli Maggi</div></div><div class="fi-right"><div class="fi-price">₹60</div><button class="add-btn" onclick="qa('Chilli Maggi',60)">+</button></div></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-pizza">
+        <div class="panel-heading"><h2>Pizza</h2><span class="panel-count">tap a size to add</span></div>
+        <div class="drink-grid" id="pizza-grid"></div>
+      </div>
+
+      <div class="menu-panel" id="tab-omelette">
+        <div class="panel-heading"><h2>Omelette</h2><span class="panel-count">4 items</span></div>
+        <div class="food-grid">
+          <div class="food-item"><div><div class="fi-name">Plain Omelette</div></div><div class="fi-right"><div class="fi-price">₹60</div><button class="add-btn" onclick="qa('Plain Omelette',60)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Masala Omelette</div></div><div class="fi-right"><div class="fi-price">₹70</div><button class="add-btn" onclick="qa('Masala Omelette',70)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Cheese Omelette</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('Cheese Omelette',80)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">4 Egg Omelette</div></div><div class="fi-right"><div class="fi-price">₹100</div><button class="add-btn" onclick="qa('4 Egg Omelette',100)">+</button></div></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-sandwiches">
+        <div class="panel-heading"><h2>Sandwiches</h2><span class="panel-count">10 items</span></div>
+        <div class="food-grid">
+          <div class="food-item"><div><div class="fi-name">Veg Sandwich</div></div><div class="fi-right"><div class="fi-price">₹60</div><button class="add-btn" onclick="qa('Veg Sandwich',60)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chilly Cheese Sandwich</div></div><div class="fi-right"><div class="fi-price">₹70</div><button class="add-btn" onclick="qa('Chilly Cheese Sandwich',70)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Corn & Cheese Sandwich</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('Corn & Cheese Sandwich',80)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Paneer Grilled Sandwich</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('Paneer Grilled Sandwich',80)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Tandoori Cheese</div><div class="fi-desc">4 pcs</div></div><div class="fi-right"><div class="fi-price">₹120</div><button class="add-btn" onclick="qa('Tandoori Cheese (4 Pc)',120)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Tandoori Paneer Grilled</div><div class="fi-desc">4 pcs</div></div><div class="fi-right"><div class="fi-price">₹150</div><button class="add-btn" onclick="qa('Tandoori Paneer Grilled (4 Pc)',150)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chicken Sandwich</div><div class="fi-desc">4 pcs</div></div><div class="fi-right"><div class="fi-price">₹120</div><button class="add-btn" onclick="qa('Chicken Sandwich (4 Pc)',120)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Veg Club Sandwich</div></div><div class="fi-right"><div class="fi-price">₹130</div><button class="add-btn" onclick="qa('Veg Club Sandwich',130)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chicken Club Sandwich</div></div><div class="fi-right"><div class="fi-price">₹150</div><button class="add-btn" onclick="qa('Chicken Club Sandwich',150)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Egg Bhurji Sandwich</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('Egg Bhurji Sandwich',80)">+</button></div></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-pasta">
+        <div class="panel-heading"><h2>Pasta</h2><span class="panel-count">7 items</span></div>
+        <div class="food-grid">
+          <div class="food-item"><div><div class="fi-name">White Sauce (Alfredo)</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('White Sauce (Alfredo)',80)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Red Sauce (Arrabbiata)</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('Red Sauce (Arrabbiata)',80)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Mix Sauce Pasta</div></div><div class="fi-right"><div class="fi-price">₹90</div><button class="add-btn" onclick="qa('Mix Sauce (Pasta)',90)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Tandoori Sauce Pasta</div></div><div class="fi-right"><div class="fi-price">₹90</div><button class="add-btn" onclick="qa('Tandoori Sauce (Pasta)',90)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Schezwan Pasta</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('Schezwan Pasta',80)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Dry Pasta</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('Dry Pasta',80)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Baked Cheese Pasta</div><div class="fi-desc">red / white / mix</div></div><div class="fi-right"><div class="fi-price">₹120</div><button class="add-btn" onclick="qa('Baked Cheese Pasta',120)">+</button></div></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-burgers">
+        <div class="panel-heading"><h2>Burgers</h2><span class="panel-count">2 items</span></div>
+        <div class="food-grid">
+          <div class="food-item"><div><div class="fi-name">Veg Burger</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('Veg Burger',80)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chicken Burger</div></div><div class="fi-right"><div class="fi-price">₹120</div><button class="add-btn" onclick="qa('Chicken Burger',120)">+</button></div></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-combos">
+        <div class="panel-heading"><h2>Combo Meals</h2><span class="panel-count">6 combos</span></div>
+        <div class="combo-grid">
+          <div class="combo-card"><div><div class="combo-badge">Best Value</div><div class="combo-name">Veg Burger + Fries + Coke</div></div><div style="text-align:right;flex-shrink:0;"><div class="combo-price">₹130</div><button class="add-btn" style="margin-top:8px;margin-left:auto;" onclick="qa('Veg Burger + Fries + Coke',130)">+</button></div></div>
+          <div class="combo-card"><div><div class="combo-badge">Popular</div><div class="combo-name">Veg Cheese Burger + Fries + Coke</div></div><div style="text-align:right;flex-shrink:0;"><div class="combo-price">₹150</div><button class="add-btn" style="margin-top:8px;margin-left:auto;" onclick="qa('Veg Cheese Burger + Fries + Coke',150)">+</button></div></div>
+          <div class="combo-card"><div><div class="combo-badge">Non-Veg</div><div class="combo-name">Chicken Burger + Fries + Coke</div></div><div style="text-align:right;flex-shrink:0;"><div class="combo-price">₹180</div><button class="add-btn" style="margin-top:8px;margin-left:auto;" onclick="qa('Chicken Burger + Fries + Coke',180)">+</button></div></div>
+          <div class="combo-card"><div><div class="combo-badge">Veg</div><div class="combo-name">Paneer Sandwich + Fries + Coke</div></div><div style="text-align:right;flex-shrink:0;"><div class="combo-price">₹140</div><button class="add-btn" style="margin-top:8px;margin-left:auto;" onclick="qa('Paneer Sandwich + Fries + Coke',140)">+</button></div></div>
+          <div class="combo-card"><div><div class="combo-badge">Veg</div><div class="combo-name">Corn & Cheese Sandwich + Fries + Coke</div></div><div style="text-align:right;flex-shrink:0;"><div class="combo-price">₹150</div><button class="add-btn" style="margin-top:8px;margin-left:auto;" onclick="qa('Corn & Cheese Sandwich + Fries + Coke',150)">+</button></div></div>
+          <div class="combo-card"><div><div class="combo-badge">Non-Veg</div><div class="combo-name">Tandoori Chicken + Fries + Coke</div></div><div style="text-align:right;flex-shrink:0;"><div class="combo-price">₹180</div><button class="add-btn" style="margin-top:8px;margin-left:auto;" onclick="qa('Tandoori Chicken + Fries + Coke',180)">+</button></div></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-subway">
+        <div class="panel-heading"><h2>Subway</h2><span class="panel-count">2 items</span></div>
+        <div class="food-grid">
+          <div class="food-item"><div><div class="fi-name">Paneer Subway</div></div><div class="fi-right"><div class="fi-price">₹130</div><button class="add-btn" onclick="qa('Paneer Subway',130)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chicken Subway</div></div><div class="fi-right"><div class="fi-price">₹150</div><button class="add-btn" onclick="qa('Chicken Subway',150)">+</button></div></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-rolls">
+        <div class="panel-heading"><h2>Rolls</h2><span class="panel-count">3 items</span></div>
+        <div class="food-grid">
+          <div class="food-item"><div><div class="fi-name">Egg Roll</div></div><div class="fi-right"><div class="fi-price">₹80</div><button class="add-btn" onclick="qa('Egg Roll',80)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Paneer Roll</div></div><div class="fi-right"><div class="fi-price">₹100</div><button class="add-btn" onclick="qa('Paneer Roll',100)">+</button></div></div>
+          <div class="food-item"><div><div class="fi-name">Chicken Roll</div></div><div class="fi-right"><div class="fi-price">₹120</div><button class="add-btn" onclick="qa('Chicken Roll',120)">+</button></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="order-wrap">
+      <div class="order-head reveal">
+        <div class="label">Place Your Order</div>
+        <h2>Quick, easy,<br><em>freshly made.</em></h2>
+      </div>
+      <div class="order-grid">
+        <div class="order-panel reveal reveal-d1">
+          <label class="o-label">Your Name</label>
+          <input type="text" id="custName" class="o-input" placeholder="Enter your name">
+          <label class="o-label">Search & Select Item</label>
+          <div class="suggest-wrap">
+            <input type="text" id="itemInput" class="o-input" placeholder="Type to search — chai, momo, shake…" autocomplete="off">
+            <div id="liveSuggestions" class="suggestions" style="display:none;"></div>
+          </div>
+          <div class="o-row">
+            <div><label class="o-label">Unit Price</label><input type="text" id="priceInput" class="o-input" readonly value="₹0"></div>
+            <div><label class="o-label">Quantity</label><input type="number" id="qtyInput" class="o-input" min="1" value="1"></div>
+          </div>
+          <button class="o-submit" onclick="handleOrder()">Add to Cart</button>
+        </div>
+        <div class="cart-panel reveal reveal-d2">
+          <div class="cart-title">Your Cart <span class="cart-badge" id="cartBadge">0</span></div>
+          <div id="cartList"><div class="cart-empty">Cart is empty<br><span style="font-size:11px;opacity:.5;">Tap + on any item to add</span></div></div>
+          <div class="cart-total-row">
+            <span class="ct-label">Total</span>
+            <span class="ct-amount" id="orderTotal">₹0</span>
+          </div>
+          <button class="checkout-btn" onclick="checkout()"><i class="fa-brands fa-whatsapp"></i> Checkout via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="gallery-inner">
+      <div class="gallery-head reveal">
+        <div class="label">Our Space</div>
+        <h2>Café Gallery</h2>
+      </div>
+      <div class="gallery-grid reveal reveal-d1">
+        <img src="images/7.jpg" alt="Café interior">
+        <img src="images/2.jpg" alt="Food at Chai Garam">
+        <img src="images/1.jpg" alt="Drinks at Chai Garam">
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="about-inner">
+      <div class="reveal">
+        <div class="label">Who We Are</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,46px);font-weight:700;margin-top:14px;line-height:1.1;">Pocket Café,<br><em style="font-style:italic;">Big Vibes.</em></h2>
+        <p style="font-size:15px;color:var(--muted);margin-top:18px;line-height:1.75;max-width:400px;">Chai Garam is your college's favourite hangout — freshly brewed chai, quick bites, creamy shakes and comfort food, all priced to be kind to your pocket.</p>
+        <div class="about-perks">
+          <div class="perk"><div class="perk-num">01</div><div><div class="perk-title">Lightning Fast Service</div><div class="perk-desc">No waiting, no stress — your order is ready before your next class begins.</div></div></div>
+          <div class="perk"><div class="perk-num">02</div><div><div class="perk-title">Student-Friendly Prices</div><div class="perk-desc">Chai starts at ₹20. Great food that doesn't break the month.</div></div></div>
+          <div class="perk"><div class="perk-num">03</div><div><div class="perk-title">Fresh Every Single Day</div><div class="perk-desc">Made to order, every time. No stale counters, no shortcuts.</div></div></div>
+        </div>
+      </div>
+      <div class="about-card reveal reveal-d1">
+        <span class="arc-emoji">☕</span>
+        <h3 class="arc-title">Chai Garam</h3>
+        <p class="arc-desc">Pocket Café · Freshly Brewed Daily<br>Made with care, served with speed.</p>
+        <div class="arc-stats">
+          <div class="arc-stat"><div class="arc-stat-num">50+</div><div class="arc-stat-label">Items</div></div>
+          <div class="arc-stat"><div class="arc-stat-num">100%</div><div class="arc-stat-label">Fresh</div></div>
+          <div class="arc-stat"><div class="arc-stat-num">⭐</div><div class="arc-stat-label">Loved</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-head reveal">
+        <div class="label">Say Hello</div>
+        <h2>Get in Touch</h2>
+        <p>Have feedback, a bulk order query, or just want to say hi? We'd love to hear from you.</p>
+      </div>
+      <div class="contact-form reveal reveal-d1">
+        <input class="cf-input" placeholder="Your Name">
+        <input class="cf-input" placeholder="Phone or Email">
+        <textarea class="cf-input" rows="4" placeholder="Your message…"></textarea>
+        <button class="cf-submit">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">Chai <span>Garam</span></div>
+    <div class="footer-copy">© 2025 Chai Garam Pocket Café — Fresh Hot Tea Daily</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.25);">Made with ☕</div>
+  </footer>
+
+  <a id="waFloat" href="https://wa.me/919876543210" target="_blank" title="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <div id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
