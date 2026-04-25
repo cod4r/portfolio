@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Landing Page - Project</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --card-bg: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        /* FIX: Visibility for Muted Text */
+        .text-muted {
+            color: #cbd5e1 !important; /* Forces light grey color so it's visible */
+        }
+
+        .text-accent { color: var(--accent); text-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
+        .backdrop-blur { backdrop-filter: blur(10px); background: rgba(15, 23, 42, 0.8); border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+        /* Navbar */
+        .back-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .back-link:hover { color: var(--accent); }
+
+        .brand-logo { font-weight: 800; font-size: 1.5rem; letter-spacing: 1px; }
+
+        .btn-cta {
+            padding: 8px 25px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+        .btn-cta:hover { background: var(--accent); color: #000; box-shadow: 0 0 15px var(--accent); }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            padding-top: 120px;
+            background: radial-gradient(circle at 50% 10%, #1e293b 0%, #0f172a 70%);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 20px;
+            color: var(--accent);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-title { font-weight: 800; font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; }
+        .lead { color: var(--text-muted); max-width: 600px; margin: 0 auto 3rem auto; font-size: 1.2rem; }
+
+        /* Custom Buttons */
+        .btn-primary-custom {
+            padding: 14px 35px;
+            background: var(--accent);
+            color: #0f172a;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-right: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn-primary-custom:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4); }
+
+        .btn-secondary-custom {
+            padding: 14px 35px;
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--text-muted);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-secondary-custom:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* Dashboard Mockup */
+        .dashboard-preview {
+            max-width: 1000px;
+            width: 90%;
+            margin: 60px auto 0;
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid #334155;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            transform: perspective(1000px) rotateX(5deg);
+            transition: transform 0.5s;
+        }
+
+        .mockup-header { background: #0f172a; padding: 15px 20px; display: flex; gap: 8px; border-bottom: 1px solid #334155; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ef4444; } .yellow { background: #eab308; } .green { background: #22c55e; }
+
+        .mockup-body {
+            padding: 80px 20px;
+            position: relative;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(30,41,59,0) 0%, rgba(56,189,248,0.05) 100%);
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+            height: 100%;
+            text-align: left;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            background: rgba(30, 41, 59, 0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .icon-box {
+            width: 60px; height: 60px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 15px; font-size: 1.8rem; margin-bottom: 25px;
+        }
+
+        /* Footer */
+        footer { padding: 50px 0; border-top: 1px solid #334155; color: var(--text-muted); background: #0b1120; }
+        .socials a { color: var(--text-muted); font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
+        .socials a:hover { color: var(--accent); transform: scale(1.1); display: inline-block; }
+
+        /* Animation */
+        .floating-icon { animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .hero-section { padding-top: 100px; }
+            .btn-primary-custom, .btn-secondary-custom { width: 100%; margin-bottom: 10px; margin-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar fixed-top w-100 p-0">
+        <div class="container-fluid px-4 py-3 d-flex justify-content-between align-items-center backdrop-blur">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <div class="brand-logo text-white">CORE<span class="text-accent">.AI</span></div>
+            <a href="#" class="btn-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <section class="hero-section text-center">
+        <div class="container">
+            <div class="gs-reveal">
+                <span class="hero-badge">New v2.0 is Live 🚀</span>
+            </div>
+            <h1 class="hero-title gs-reveal text-white">
+                Future of <span class="text-accent">Workflow</span> <br> Automation
+            </h1>
+            <p class="lead gs-reveal">
+                Supercharge your productivity with our AI-driven platform. 
+                Designed for modern teams who move fast and break nothing.
+            </p>
+            <div class="hero-buttons gs-reveal mt-4">
+                <button class="btn-primary-custom">Start Free Trial</button>
+                <button class="btn-secondary-custom"><i class="fas fa-play me-2"></i> Demo</button>
+            </div>
+
+            <div class="dashboard-preview mt-5 gs-reveal">
+                <div class="mockup-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="mockup-body">
+                    <i class="fas fa-chart-pie text-accent fa-4x mb-4 floating-icon"></i>
+                    <h3 class="text-white fw-bold">Analytics Dashboard</h3>
+                    <p class="text-muted">Real-time data visualization module loading...</p>
+                    <div class="mt-4 d-flex justify-content-center gap-3 opacity-50">
+                        <div class="h-2 w-24 bg-gray-600 rounded"></div>
+                        <div class="h-2 w-16 bg-gray-600 rounded"></div>
+                        <div class="h-2 w-20 bg-gray-600 rounded"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section py-5 my-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card gs-reveal">
+                        <div class="icon-box"><i class="fas fa-bolt"></i></div>
+                        <h3 class="text-white fw-bold h4">Lightning Fast</h3>
+                        <p class="text-muted mt-3">Optimized for speed with edge computing. No lag, just pure performance for your team.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card gs-reveal">
+                        <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                        <h3 class="text-white fw-bold h4">Secure by Design</h3>
+                        <p class="text-muted mt-3">Enterprise-grade encryption (AES-256) ensures your data remains safe and private.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card gs-reveal">
+                        <div class="icon-box"><i class="fas fa-magic"></i></div>
+                        <h3 class="text-white fw-bold h4">AI Automation</h3>
+                        <p class="text-muted mt-3">Let our advanced AI handle the repetitive tasks while you focus on strategic growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mt-auto">
+        <div class="container text-center">
+            <h2 class="mb-4 fw-bold text-white">Ready to get started?</h2>
+            <p class="mb-5">&copy; 2024 Core.AI Clone. Built by <span class="text-accent fw-bold">Raja Babu Rai</span></p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const tl = gsap.timeline();
+
+            tl.from(".navbar", { y: -50, opacity: 0, duration: 1, ease: "power3.out" })
+              .from(".hero-badge", { y: 20, opacity: 0, duration: 0.8 }, "-=0.5")
+              .from(".hero-title", { y: 30, opacity: 0, duration: 1, ease: "power3.out" }, "-=0.6")
+              .from(".lead", { y: 20, opacity: 0, duration: 0.8 }, "-=0.7")
+              .from(".hero-buttons", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
+              .from(".dashboard-preview", { y: 100, opacity: 0, rotationX: 15, duration: 1.2, ease: "power3.out" }, "-=0.8");
+
+            gsap.utils.toArray(".feature-card").forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%",
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: i * 0.1
+                });
+            });
+
+            // 3D Tilt Effect on Dashboard
+            const dashboard = document.querySelector('.dashboard-preview');
+            if(dashboard) {
+                document.addEventListener('mousemove', (e) => {
+                    const x = (window.innerWidth / 2 - e.pageX) / 40;
+                    const y = (window.innerHeight / 2 - e.pageY) / 40;
+                    
+                    gsap.to(dashboard, {
+                        rotationY: x,
+                        rotationX: y,
+                        duration: 0.5,
+                        ease: "power1.out"
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
